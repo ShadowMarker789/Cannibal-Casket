@@ -1,5 +1,22 @@
 /* global monogatari */
 
+monogatari.storage({
+	closeness: 0.0,
+	passion: 0.0,
+	anger: 0.0
+});
+
+// Modify the Main Menu
+
+// Set new template
+monogatari.component('main-screen').template(() => {
+	return `
+        <h1>Cannibal Casket</h1>
+		<subtitle>(Still a work in progress!)</subtitle>
+        <main-menu></main-menu>
+    `;
+});
+
 // Define the messages used in the game.
 monogatari.action ('message').messages ({
 	'Help': {
@@ -141,6 +158,8 @@ monogatari.script({
 					}
 				}
 			},
+			'dev: Then we can begin.',
+			'...',
 			'ash: So close, yet so far away...',
 			'You mop the cultist\'s blood off the floor furiously as Andrew\'s \'negotiations\' eek through the walls.',
 			'ash: He\'s here, but he\'s not present...',
@@ -148,7 +167,31 @@ monogatari.script({
 			'ash: ... And he\'s making me do all the work, again.',
 			'Your knuckles whiten as you grip the mop. A particularly dry patch stays stubbornly attached to the floor.',
 			'ash: ... I wouldn\'t mind so much if he\'d just <i>THANK</i> me for it.',
-			'The blood on the floor has attachment issues.',
+			{
+				Choice: {
+					Dialog: 'The blood on the floor has attachment issues.',
+					hard: {
+						Text: 'Scrub Harder',
+						Do: 'jump ch1_beforeClosetMoppingScrubHard'
+					},
+					soft: {
+						Text: 'Scrub Softer',
+						Do: 'jump ch1_beforeClosetMoppingScrubSoft'
+					}
+				}
+			},
+		],
+		'ch1_beforeClosetMoppingScrubHard': [
+			'Gritting your teeth, you smash the head of the mop into the bloodstain like a chisle.',
+			'Your muscles burn from the effort, but the stain resists your valiant efforts to cover up your crimes.',
+			'jump ch1_beforeClosetHideUnifiedChoice'
+		],
+		'ch1_beforeClosetMoppingScrubSoft': [
+			'You give a big sigh as you mop with more care, slowly and deliberately swirling the head of the mop into the bloody mess.',
+			'You can\'t relax, not with the warden right on your tail, with how tense you are you\'re literally shaking as you mop.',
+			'jump ch1_beforeClosetHideUnifiedChoice'
+		],
+		'ch1_beforeClosetHideUnifiedChoice': [
 			'ash: But no - that\'s too much to ask!',
 			'The blood finally yields to your amazing mopping skills, the ugly brown fading enough to pretend that everything is fine.',
 			'There\'s even blood under the fridge of all places.',
@@ -158,7 +201,7 @@ monogatari.script({
 			'Shit. Fuck.',
 			'You grab the mop and dash for the balcony.',
 			'It feels farther than before, if you were smarter you would have started with the fridge first, mopping your way towards the balcony.',
-			'Unfortunately, it appears that your immense intelligence is solely dedicated towards self-deprecation, scorn, and self-loathing.',
+			'Unfortunately, it appears that your immense intelligence is solely dedicated towards self-deprecation, self-loathing, and regret.',
 			'In a moment of panic, you spot the wardrobe. It\'s closer.',
 			'jump ch1_closetHideChoiceBeforeChoose'
 		],
@@ -171,7 +214,7 @@ monogatari.script({
 						Do: 'jump ch1_closetHideChoiceHideInCloset'
 					},
 					'run': {
-						Text: 'Run faster!',
+						Text: 'Pray and run!',
 						Do: 'jump ch1_closetHideChoiceRunFaster'
 					}
 				}
@@ -195,7 +238,7 @@ monogatari.script({
 			'warden: <b>ARGH! MY FOOT!</b>',
 			'... Did your prayers actually reach someone? Something?',
 			'You don\'t stop to give thanks, you bolt down the balcony, picking up the plank as you go just before the door opens.',
-			'Your pace slows as you reach Andrew. You cover your panting mouth with your hands after putting down the plank and mop to keep quiet.',
+			'Your pace slows as you reach Andrew. You cover your panting mouth with your hands after slowly putting down the plank and mop to keep quiet.',
 			'Andrew has his ear planted against the wall, listening.',
 			'You join him there. ',
 			'warden: Greetings and salutations!',
@@ -211,7 +254,10 @@ monogatari.script({
 			'You can visibly see the relief wash over Andrew, that sigh of his preceeds your own, but you\'re just happy to see him happy.',
 			'Well, happier... He\'s not exactly smiling.',
 			'You can hear more footsteps as the warden paces and searches the neighbor\'s room.',
-			'... Oh no. There\'s no body for him to find. What is he going to do?',
+			'There\'s the sound of the closet opening and closing - you definitely would have been caught if you tried to hide in there.',
+			'Good thing you didn\'t, huh?',
+			'The warden\'s search continues, you can hear footsteps, desks being bumped against, chairs moving...',
+			'... Wait ... Oh no. There\'s no body for him to find. What is he going to do?',
 			'You might still be fucked.',
 			'... It worked before, so...',
 			'... You silently pray once more, to whoever or whatever it was that answered you last time.',
@@ -227,13 +273,13 @@ monogatari.script({
 			'warden: The cleanup crew can deal with this, I am not touching that.',
 			'warden: ... Fine, I\'ll file the paperwork, happy?',
 			'To your relief, the warden can be heard leaving the room, putting the bar back on the door before his footsteps fade off into the distance.',
-			'You\'ve finally caught your breath, no longer a panting like a bitch in heat.',
+			'You\'ve finally caught your breath, no longer panting like a bitch in heat.',
 			'and: Oh God that was too close...',
 			'Andrew breaths another sigh of relief, almost collapsing against the wall that he flops against, the tension leaving his body.',
 			'and: I was so sure we were screwed.',
 			'ash: And thanks to my amazing mopping skills, we aren\'t!',
 			'You bring your hand to your chest that you puff out dramatically.',
-			'Or at least try to, your breathing isn\'t quite all there yet.',
+			'Or at least try to - your breathing isn\'t quite all there yet.',
 			'ash: You can thank me now!',
 			'and: Yeah, yeah, don\'t push it.',
 			'And you called it.',
@@ -257,12 +303,17 @@ monogatari.script({
 			'end'
 		],
 		'ch1_postWardenPickFight': [
+			() => {
+				let anger = monogatari.storage('anger');
+				anger = anger + 0.1;
+				monogatari.storage({ anger: anger });
+			},
 			'He\'s asking for it.',
 			'And you have run out of sympathy for his ungrateful ass.',
 			'ash: YES! Because YOU made such a mess of things I barely had enough time to get out!',
 			'ash: If the warden hadn\'t dropped the bar on his foot I would have had to hide in the closet!',
 			'Andrew\'s scowl returns, removing all semblance of what might have been a smile.',
-			'and: Well, maybe YOU should have tried carving up an entire person without making a mess!',
+			'and: Well, maybe YOU should try carving up an entire person without making a mess!',
 			'and: And it was YOUR idea to carve him up for food!',
 			'ash: Yeah because we were STARVING!',
 			'ash: Did you forget that we were routinely collapsing from hunger?',
@@ -298,6 +349,11 @@ monogatari.script({
 			'end'
 		],
 		'ch1_postWardenReconcile': [
+			() => {
+				let closeness = monogatari.storage('closeness');
+				closeness = closeness + 0.1;
+				monogatari.storage({ closeness: closeness });
+			},
 			'You\'d rather not pick a fight...',
 			'Why is it so hard to make him happy?',
 			'Or to keep him happy, for that matter?',
