@@ -13,7 +13,6 @@ monogatari.component('main-screen').template(() => {
     return `
         <h1>Cannibal Casket</h1>
 		<subtitle>(Still a work in progress!)</subtitle>
-        <main-menu></main-menu>
     `;
 });
 
@@ -186,11 +185,14 @@ monogatari.script({
             },
         ],
         'ch1_beforeClosetMoppingScrubHard': [
+            'No! There\'s only room for ONE stubborn bitch with attachment issues!',
             'Gritting your teeth, you smash the head of the mop into the bloodstain like a chisle.',
             'Your muscles burn from the effort, but the stain resists your valiant efforts to cover up your comrade\'s crimes.',
             'jump ch1_beforeClosetHideUnifiedChoice'
         ],
         'ch1_beforeClosetMoppingScrubSoft': [
+            'You find yourself relating to the ugly smudge on the floor.',
+            'It\'s not the only one here that stubbornly refuses to let go.',
             'You give a big sigh as you mop with more care, slowly and deliberately swirling the head of the mop into the bloody mess.',
             'You can\'t relax, not with the warden right on your tail.',
             'With how tense you are you\'re literally shaking as you mop.',
@@ -206,7 +208,7 @@ monogatari.script({
             'Shit. Fuck.',
             'You grab the mop and dash for the balcony.',
             'It feels farther than before. If you were smarter you would have started with the fridge first, mopping your way towards the balcony.',
-            'Unfortunately, it appears that your immense intelligence is solely dedicated towards self-deprecation, self-loathing, and regret.',
+            'Unfortunately, it appears that your immense intellect is solely dedicated towards self-deprecation, self-loathing, and regret.',
             'In a moment of panic, you spot the wardrobe. It\'s closer.',
             'jump ch1_closetHideChoiceBeforeChoose'
         ],
@@ -450,14 +452,18 @@ monogatari.script({
                 monogatari.storage().passion -= 0.05;
             },
             'You turn away from Andrew\'s back, pretending that you\'re not hurt by it.',
-
+            'TODO: Finish this',
+            'end'
         ],
         'ch1_earlyWishAndrewGoodNight': [
             () => monogatari.storage().passion += 0.1,
-            'You pause before you sit down on your bed, looking at Andrew\'s back.'
+            'You pause before you sit down on your bed, looking at Andrew\'s back.',
+            'TODO: FInish this',
+            'end'
         ],
         'ch1_earlyCannibalismYumYum': [
-
+            'YUM YUM CANNIBALISM YUM YUM!',
+            'end'
         ],
         'ch1_didNotPlayTCOAAL': [
             'dev: Well, go play it!',
