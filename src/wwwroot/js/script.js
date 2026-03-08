@@ -93,7 +93,9 @@ monogatari.assets('videos', {
 
 // Define the images used in the game.
 monogatari.assets('images', {
-
+    'ch1-andrew-door-1': 'Andrew_door_1.jpg',
+    'ch1-andrew-door-2': 'Andrew_door_2.jpg',
+    'ch1-nearly-caught-test-1': 'rclisk324-test-1.jpg'
 });
 
 // Define the backgrounds for each scene.
@@ -246,7 +248,8 @@ monogatari.script({
             '... Did your prayers actually reach someone? Something?',
             'You don\'t stop to give thanks. You bolt down the balcony, picking up the plank as you go just before the door opens.',
             'Your pace slows as you reach Andrew. You cover your panting mouth with your hands after slowly putting down the plank and mop to keep quiet.',
-            'Andrew has his ear planted against the wall, listening.',
+            'show image ch1-nearly-caught-test-1 with fadeIn',
+            'Andrew is hiding right by the balcony, listening.',
             'You join him there. ',
             'warden: Greetings and salutations!',
             'The warden\'s loud voice almost makes you jump.',
@@ -335,8 +338,10 @@ monogatari.script({
             'and: Ugh, whatever, I\'m done with this.',
             'Andrew gets up, and you notice his fists clenched tightly.',
             'and: I still feel sick from last night\'s \'food\'.',
+            'show image ch1-andrew-door-2 with fadeIn',
             'He walks over to the bedroom, pausing to glare at you before he leaves.',
             'and: Good night, Ashley.',
+            'hide image ch1-andrew-door-2',
             'The bedroom door closes with finality before you can respond.',
             'Well, shit.',
             'Too late to have regrets, not that you do, but you do.',
