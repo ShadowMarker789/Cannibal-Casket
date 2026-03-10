@@ -83,7 +83,11 @@ monogatari.assets('voices', {
 
 // Define the sounds used in the game.
 monogatari.assets('sounds', {
-
+    'wet-squish-1': 'Squish - Wet Slide Fast-001.wav',
+    'wet-squish-2': 'Squish - Wet Slide Fast-002.wav',
+    'wet-squish-3': 'Squish - Wet Slide Fast-003.wav',
+    'wet-squish-4': 'Squish - Wet Slide Fast-004.wav',
+    'wet-squish-5': 'Squish - Wet Slide Fast-005.wav'
 });
 
 // Define the videos used in the game.
@@ -172,11 +176,24 @@ monogatari.script({
             'ash: WHY IS THERE SO MUCH BLOOD?!',
             'The cultist\'s blood is everywhere, all over the floor.',
             'There\'s a large streak of it leading towards the freezer that houses the head and torso.',
+            'play sound wet-squish-1',
             'You start mopping the cultist\'s blood off the floor furiously as Andrew\'s \'negotiations\' eek through the walls.',
+            'play sound wet-squish-2',
+            'ash: Oh, this is gross!',
+            'play sound wet-squish-3',
+            'The blood has thoroughly coagulated, having spent an entire day and night becoming one with the floor.',
+            'play sound wet-squish-4',
+            'Your progress on the blood is slow, you don\'t have much time.',
+            'play sound wet-squish-5',
             'ash: Come on, faster!',
             'The mopping intensifies.',
+            'play sound wet-squish-1',
+            'play sound wet-squish-2',
+            'play sound wet-squish-3',
+            'play sound wet-squish-4',
+            'play sound wet-squish-5',
             'ash: ... Did Andy not clean ANY of this up?!',
-            'Your knuckles whiten as you grip the mop. A particularly dry patch stays stubbornly attached to the floor.',
+            'Your knuckles whiten as you grip the mop. A particularly thick dry patch stays stubbornly attached to the floor.',
             'ash: ... And this mop sucks! Argh!',
             'The blood on the floor has attachment issues.',
             {
@@ -225,6 +242,9 @@ monogatari.script({
             'It feels farther than before. If you were smarter you would have started with the fridge first, mopping your way towards the balcony.',
             'Unfortunately, it appears that your immense intellect is solely dedicated towards self-deprecation, self-loathing, and regret.',
             'In a moment of panic, you spot the wardrobe. It\'s closer.',
+            () => {
+                stopVideo();
+            },
             'jump ch1_closetHideChoiceBeforeChoose'
         ],
         'ch1_closetHideChoiceBeforeChoose': [
