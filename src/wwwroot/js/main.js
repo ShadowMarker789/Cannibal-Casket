@@ -74,7 +74,7 @@ $_ready(() => {
 
         function startVideo() {
             console.log('Youtube player start requested!');
-            youtubePlayer.startVideo();
+            youtubePlayer.playVideo();
         }
 
         setTimeout(startVideo, 1000);
