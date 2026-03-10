@@ -36,7 +36,7 @@ $_ready(() => {
 
         // a.3. This function creates an <iframe> (and YouTube player)
         //    after the API code downloads.
-        var player = new YT.Player('youtube-player', {
+        player = new YT.Player('youtube-player', {
             videoId: 'ppriAsvBlhI',
             playerVars: {
                 'playsinline': 1
