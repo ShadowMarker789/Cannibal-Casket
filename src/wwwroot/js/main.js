@@ -23,6 +23,8 @@
  * =============================================================================
  **/
 
+let youtubePlayer = {} ;
+
 const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
@@ -36,8 +38,10 @@ $_ready(() => {
 
         // a.3. This function creates an <iframe> (and YouTube player)
         //    after the API code downloads.
-        player = new YT.Player('youtube-player', {
+        youtubePlayer = new YT.Player('youtube-player', {
             videoId: 'ppriAsvBlhI',
+            width: 240,
+            height: 144,
             playerVars: {
                 'playsinline': 1
             },
@@ -63,7 +67,7 @@ $_ready(() => {
             }
         }
         function stopVideo() {
-            player.stopVideo();
+            youtubePlayer.stopVideo();
         }
     });
 });
