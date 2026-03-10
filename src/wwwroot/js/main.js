@@ -67,5 +67,7 @@ $_ready(() => {
         function stopVideo() {
             youtubePlayer.stopVideo();
         }
+
+        youtubePlayer.playVideo();
     });
 });
