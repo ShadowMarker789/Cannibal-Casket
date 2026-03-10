@@ -23,7 +23,8 @@
  * =============================================================================
  **/
 
-let youtubePlayer = {} ;
+let youtubePlayer = {};
+let youtubePlayerState = {};
 
 const { $_ready, $_ } = Monogatari;
 
@@ -61,8 +62,10 @@ $_ready(() => {
         // 5. The API calls this function when the player's state changes.
         //    The function indicates that when playing a video (state=1),
         function onPlayerStateChange(event) {
+            console.log("onPlayerStateChange: ", event);
+            youtubePlayerState = event.data;
             if (event.data == YT.PlayerState.PLAYING) {
-                // TODO: Do something 
+                // TODO: Do something if it's playing 
             }
         }
         function stopVideo() {
