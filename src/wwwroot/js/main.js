@@ -33,14 +33,10 @@ $_ready(() => {
 
     monogatari.init('#monogatari').then(() => {
         // 3. Inside the init function:
-        var playerDiv = document.querySelector("visual-novel").appendChild(document.createElement("div"));
-        playerDiv.id = "youtube-player";
 
         // a.3. This function creates an <iframe> (and YouTube player)
         //    after the API code downloads.
         var player = new YT.Player('youtube-player', {
-            height: '144',
-            width: '240',
             videoId: 'ppriAsvBlhI',
             playerVars: {
                 'playsinline': 1
