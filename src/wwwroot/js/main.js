@@ -39,8 +39,8 @@ $_ready(() => {
         // a.3. This function creates an <iframe> (and YouTube player)
         //    after the API code downloads.
         var player = new YT.Player('youtube-player', {
-            height: '390',
-            width: '640',
+            height: '144',
+            width: '240',
             videoId: 'ppriAsvBlhI',
             playerVars: {
                 'playsinline': 1
@@ -51,6 +51,7 @@ $_ready(() => {
             }
         });
 
+        document.querySelector("youtube-player").origin = "https://shadowmarker789.github.io/";
 
         // 4. The API will call this function when the video player is ready.
         function onPlayerReady(event) {
