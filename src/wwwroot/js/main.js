@@ -41,7 +41,7 @@ $_ready(() => {
         var player = new YT.Player('youtube-player', {
             height: '390',
             width: '640',
-            videoId: 'M7lc1UVf-VE',
+            videoId: 'ppriAsvBlhI',
             playerVars: {
                 'playsinline': 1
             },
