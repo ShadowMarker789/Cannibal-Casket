@@ -28,38 +28,29 @@ const { $_ready, $_ } = Monogatari;
 // 1. Outside the $_ready function:
 
 
-$_ready (() => {
-	// 2. Inside the $_ready function:
+$_ready(() => {
+    // 2. Inside the $_ready function:
 
-	monogatari.init ('#monogatari').then (() => {
-		// 3. Inside the init function:
-		var playerDiv = document.querySelector("visual-novel").appendChild(document.createElement("div"));
-		playerDiv.id = "youtube-player";
-
-        // a.2. This code loads the IFrame Player API code asynchronously.
-        var tag = document.createElement('script');
-
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    monogatari.init('#monogatari').then(() => {
+        // 3. Inside the init function:
+        var playerDiv = document.querySelector("visual-novel").appendChild(document.createElement("div"));
+        playerDiv.id = "youtube-player";
 
         // a.3. This function creates an <iframe> (and YouTube player)
         //    after the API code downloads.
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtube-player', {
-                height: '390',
-                width: '640',
-                videoId: 'M7lc1UVf-VE',
-                playerVars: {
-                    'playsinline': 1
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
+        var player = new YT.Player('youtube-player', {
+            height: '390',
+            width: '640',
+            videoId: 'M7lc1UVf-VE',
+            playerVars: {
+                'playsinline': 1
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+
 
         // 4. The API will call this function when the video player is ready.
         function onPlayerReady(event) {
@@ -79,5 +70,5 @@ $_ready (() => {
         function stopVideo() {
             player.stopVideo();
         }
-	});
+    });
 });

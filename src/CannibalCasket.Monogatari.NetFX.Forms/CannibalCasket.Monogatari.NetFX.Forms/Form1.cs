@@ -64,6 +64,7 @@ namespace CannibalCasket.Monogatari.NetFX.Forms
                 //var logEventReceiver = webView21.CoreWebView2.GetDevToolsProtocolEventReceiver("Log.entryAdded");
                 //logEventReceiver.DevToolsProtocolEventReceived += LogEventReceiver_DevToolsProtocolEventReceived;
 
+                // webView21.CoreWebView2.Settings.
 
                 string appPath = AppDomain.CurrentDomain.BaseDirectory;
                 string htmlPath = Path.Combine(appPath, "wwwroot\\index.html");
