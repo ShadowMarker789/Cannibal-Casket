@@ -193,8 +193,10 @@ monogatari.script({
             'play sound wet-squish-4',
             'play sound wet-squish-5',
             'ash: ... Did Andy not clean ANY of this up?!',
+            'play sound wet-squish-2',
             'Your knuckles whiten as you grip the mop. A particularly thick dry patch stays stubbornly attached to the floor.',
             'ash: ... And this mop sucks! Argh!',
+            'play sound wet-squish-4',
             'The blood on the floor has attachment issues.',
             {
                 Choice: {
@@ -218,13 +220,22 @@ monogatari.script({
         'ch1_beforeClosetMoppingScrubSoft': [
             'You find yourself relating to the ugly smudge on the floor.',
             'It\'s not the only one here that stubbornly refuses to let go.',
+            'play sound wet-squish-1',
             'You give a big sigh as you mop with more care, slowly and deliberately swirling the head of the mop into the bloody mess.',
+            'play sound wet-squish-3',
             'You can\'t relax, not with the warden right on your tail.',
+            'play sound wet-squish-4',
             'With how tense you are you\'re literally shaking as you mop.',
+            'play sound wet-squish-5',
             'jump ch1_beforeClosetHideUnifiedChoice'
         ],
         'ch1_beforeClosetHideUnifiedChoice': [
             'ash: Please, please, please!',
+            'play sound wet-squish-1',
+            'play sound wet-squish-2',
+            'play sound wet-squish-3',
+            'play sound wet-squish-4',
+            'play sound wet-squish-5',
             'The blood finally yields to your amazing mopping skills, the ugly brown fading enough to pretend that everything is fine.',
             'There\'s even blood under the fridge of all places.',
             'And on the fridge. Probably in the fridge too.',
