@@ -68,15 +68,16 @@ $_ready(() => {
                 // TODO: Do something if it's playing 
             }
         }
-        function stopVideo() {
-            youtubePlayer.stopVideo();
-        }
-
-        function startVideo() {
-            console.log('Youtube player start requested!');
-            youtubePlayer.playVideo();
-        }
 
         setTimeout(startVideo, 1000);
     });
 });
+
+function stopVideo() {
+    youtubePlayer.stopVideo();
+}
+
+function startVideo() {
+    console.log('Youtube player start requested!');
+    youtubePlayer.playVideo();
+}
