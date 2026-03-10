@@ -54,12 +54,14 @@ $_ready(() => {
             console.log("onPlayerReady fired~");
             event.target.playVideo();
             youtubePlayer.playVideo();
+
+            setTimeout(youtubePlayer.playVideo, 1000);
         }
 
         // 5. The API calls this function when the player's state changes.
         //    The function indicates that when playing a video (state=1),
         function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING && !done) {
+            if (event.data == YT.PlayerState.PLAYING) {
                 // TODO: Do something 
             }
         }
