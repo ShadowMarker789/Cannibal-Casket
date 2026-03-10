@@ -54,10 +54,10 @@ $_ready(() => {
         // 4. The API will call this function when the video player is ready.
         function onPlayerReady(event) {
             console.log("onPlayerReady fired~");
-            event.target.playVideo();
-            startVideo();
+            // event.target.playVideo();
+            // startVideo();
 
-            setTimeout(startVideo, 1000);
+            // setTimeout(startVideo, 1000);
         }
 
         // 5. The API calls this function when the player's state changes.
@@ -69,8 +69,6 @@ $_ready(() => {
                 // TODO: Do something if it's playing 
             }
         }
-
-        setTimeout(startVideo, 5000);
     });
 });
 

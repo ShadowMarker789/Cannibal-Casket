@@ -161,6 +161,10 @@ monogatari.script({
             },
             'dev: Then we can begin.',
             '...',
+            () => {
+                youtubePlayer.cueVideoById('PHX0PUZJDwA');
+                startVideo();
+            },
             'You stride into the neighbor\'s apartment as fast as your little legs can carry you, mop in hand. ',
             'ash: .....',
             'ash: WHY IS THERE SO MUCH BLOOD?!',
