@@ -212,7 +212,14 @@ monogatari.script({
             'There\'s even blood under the fridge of all places.',
             'And on the fridge. Probably in the fridge too.',
             'If the warden checks inside the fridge you\'re both done for.',
+            () => {
+                stopVideo();
+                youtubePlayer.cueVideoById('xoZcO_3cYoA');
+            },
             'and: Ashley! The warden is coming!!',
+            () => {
+                startVideo();
+            },
             'Shit. Fuck.',
             'You grab the mop and dash for the balcony.',
             'It feels farther than before. If you were smarter you would have started with the fridge first, mopping your way towards the balcony.',
