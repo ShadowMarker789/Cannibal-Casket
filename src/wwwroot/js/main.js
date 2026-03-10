@@ -24,7 +24,8 @@
  **/
 
 let youtubePlayer = {};
-let youtubePlayerState = {};
+let youtubePlayerState = 0;
+let youtubePlayerDesiredState = 1;
 
 const { $_ready, $_ } = Monogatari;
 
@@ -69,7 +70,7 @@ $_ready(() => {
             }
         }
 
-        setTimeout(startVideo, 1000);
+        setTimeout(startVideo, 5000);
     });
 });
 
