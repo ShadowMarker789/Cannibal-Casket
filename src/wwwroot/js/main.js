@@ -40,8 +40,6 @@ $_ready(() => {
         //    after the API code downloads.
         youtubePlayer = new YT.Player('youtube-player', {
             videoId: 'ppriAsvBlhI',
-            width: 240,
-            height: 144,
             playerVars: {
                 'playsinline': 1
             },
