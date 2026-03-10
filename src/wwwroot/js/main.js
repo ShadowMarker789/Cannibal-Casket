@@ -47,8 +47,6 @@ $_ready(() => {
             }
         });
 
-        document.querySelector("youtube-player").origin = "https://shadowmarker789.github.io/";
-
         // 4. The API will call this function when the video player is ready.
         function onPlayerReady(event) {
             event.target.playVideo();
