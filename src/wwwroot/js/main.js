@@ -54,9 +54,9 @@ $_ready(() => {
         function onPlayerReady(event) {
             console.log("onPlayerReady fired~");
             event.target.playVideo();
-            youtubePlayer.playVideo();
+            startVideo();
 
-            setTimeout(youtubePlayer.playVideo, 1000);
+            setTimeout(startVideo, 1000);
         }
 
         // 5. The API calls this function when the player's state changes.
@@ -72,6 +72,11 @@ $_ready(() => {
             youtubePlayer.stopVideo();
         }
 
-        setTimeout(youtubePlayer.playVideo, 1000);
+        function startVideo() {
+            console.log('Youtube player start requested!');
+            youtubePlayer.startVideo();
+        }
+
+        setTimeout(startVideo, 1000);
     });
 });
