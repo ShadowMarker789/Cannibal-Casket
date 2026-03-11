@@ -331,6 +331,7 @@ monogatari.script({
             'You\'ve finally caught your breath, no longer panting like a bitch in heat.',
             'and: Oh God that was too close...',
             'Andrew breathes another sigh of relief, almost collapsing against the wall that he flops against, the tension leaving his body.',
+            'hide image ch1-nearly-caught-test-1',
             'and: I was so sure we were screwed.',
             {
                 Choice: {
@@ -413,7 +414,7 @@ monogatari.script({
             'You bring your hand to your chest that you puff out dramatically.',
             'Or at least try to - your breathing isn\'t quite all there yet.',
             'ash: You can thank me now!',
-            'TODO: Finish this train of thought',
+            'TODO: Finish this train of thought! SORRY GAME ISN\'T DONE YET!',
             'end'
         ],
         'ch1_postWardenBond': [
@@ -456,9 +457,11 @@ monogatari.script({
             '... Maybe you\'re being too harsh on him, he\'s been through a lot.',
             'Like putting up with you.',
             'Andrew slowly walks over to the bedroom, genuinely looking tired.',
+            'show image ch1-andrew-door-1',
             'He pauses by the doorway, looking back at you with tired eyes.',
             'and: Good night, Ashley.',
             'ash: ... Good night.',
+            'hide image ch1-andrew-door-1',
             'The bedroom door clicks shut softly, maybe this little adventure did bring you closer?',
             'It\'s hard to tell, sometimes. He feels closer sometimes, then doesn\'t.',
             'You pick yourself up off the ground, shaking a little bit as you do.',
