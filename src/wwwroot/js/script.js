@@ -98,6 +98,11 @@ monogatari.assets('sounds', {
     'Blow5': 'Blow5.flac',
     'Blow6': 'Blow6.flac',
     'Blow7': 'Blow7.flac',
+    'Earth1': 'Earth1.flac',
+    'Earth3': 'Earth3.flac',
+    'Earth5': 'Earth5.flac',
+    'Earth7': 'Earth7.flac',
+
 });
 
 // Define the videos used in the game.
@@ -302,6 +307,7 @@ monogatari.script({
             'You run faster. ',
             '... and you pray.',
             'Which is odd for you, because really - what sort of god or goddess would take pity on you, of all things?',
+            'play sound Earth1',
             'But then there\'s a loud clonk from the front door, followed by expletives and shouting.',
             'warden: <b>ARGH! MY FOOT!</b>',
             '... Did your prayers actually reach someone? Something?',
