@@ -13,6 +13,7 @@ monogatari.component('main-screen').template(() => {
     return `
         <h1>Cannibal Casket</h1>
 		<subtitle>(Still a work in progress!)</subtitle>
+        <img src="./assets/images/cannibal-casket-title-background.jpg" style="position:fixed;"/>
     `;
 });
 

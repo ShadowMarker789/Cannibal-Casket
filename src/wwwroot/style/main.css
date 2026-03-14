@@ -17,9 +17,11 @@
  * ===========================
 **/
 
+main-menu {
+	display:block!important;
+}
 /* General Style */
 body {
-
 }
 
 /* Simple Button styles*/
