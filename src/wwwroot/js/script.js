@@ -90,7 +90,14 @@ monogatari.assets('sounds', {
     'wet-squish-2': 'Squish - Wet Slide Fast-002.wav',
     'wet-squish-3': 'Squish - Wet Slide Fast-003.wav',
     'wet-squish-4': 'Squish - Wet Slide Fast-004.wav',
-    'wet-squish-5': 'Squish - Wet Slide Fast-005.wav'
+    'wet-squish-5': 'Squish - Wet Slide Fast-005.wav',
+    'Blow1': 'Blow1.flac',
+    'Blow2': 'Blow2.flac',
+    'Blow3': 'Blow3.flac',
+    'Blow4': 'Blow4.flac',
+    'Blow5': 'Blow5.flac',
+    'Blow6': 'Blow6.flac',
+    'Blow7': 'Blow7.flac',
 });
 
 // Define the videos used in the game.
@@ -216,7 +223,9 @@ monogatari.script({
         ],
         'ch1_beforeClosetMoppingScrubHard': [
             'No! There\'s only room for ONE stubborn bitch with attachment issues!',
+            'play sound Blow2',
             'Gritting your teeth, you smash the head of the mop into the bloodstain like a chisle.',
+            'play sound Blow1',
             'Your muscles burn from the effort, but the stain resists your valiant efforts to cover up your comrade\'s crimes.',
             'jump ch1_beforeClosetHideUnifiedChoice'
         ],
@@ -240,8 +249,11 @@ monogatari.script({
             'play sound wet-squish-4',
             'play sound wet-squish-5',
             'The blood finally yields to your amazing mopping skills, the ugly brown fading enough to pretend that everything is fine.',
+            'play sound wet-squish-1',
             'There\'s even blood under the fridge of all places.',
+            'play sound wet-squish-2',
             'And on the fridge. Probably in the fridge too.',
+            'play sound wet-squish-3',
             'If the warden checks inside the fridge you\'re both done for.',
             () => {
                 stopVideo();
