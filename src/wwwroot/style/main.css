@@ -20,6 +20,9 @@
 main-menu {
 	display:block!important;
 }
+main-screen {
+	background: black;
+}
 /* General Style */
 body {
 }
