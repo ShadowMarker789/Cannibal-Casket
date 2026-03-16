@@ -114,7 +114,9 @@ monogatari.assets('videos', {
 monogatari.assets('images', {
     'ch1-andrew-door-1': 'Andrew_door_1.jpg',
     'ch1-andrew-door-2': 'Andrew_door_2.jpg',
-    'ch1-nearly-caught-test-1': 'rclisk324-test-1.jpg'
+    'ch1-nearly-caught-test-1': 'rclisk324-test-1.jpg',
+    'ch1-hide-background': 'ch1-hide-background.png',
+    'ch1-hide-bitedrew': 'ch1-hide-bitedrew.png',
 });
 
 // Define the backgrounds for each scene.
@@ -313,7 +315,8 @@ monogatari.script({
             '... Did your prayers actually reach someone? Something?',
             'You don\'t stop to give thanks. You bolt down the balcony, picking up the plank as you go just before the door opens.',
             'Your pace slows as you reach Andrew. You cover your panting mouth with your hands after slowly putting down the plank and mop to keep quiet.',
-            'show image ch1-nearly-caught-test-1 with fadeIn',
+            'show image ch1-hide-background with fadein',
+            'show image ch1-hide-bitedrew with fadein',
             'Andrew is hiding right by the balcony, listening.',
             'You join him there. ',
             'warden: Greetings and salutations!',
@@ -352,7 +355,8 @@ monogatari.script({
             'You\'ve finally caught your breath, no longer panting like a bitch in heat.',
             'and: Oh God that was too close...',
             'Andrew breathes another sigh of relief, almost collapsing against the wall that he flops against, the tension leaving his body.',
-            'hide image ch1-nearly-caught-test-1',
+            'hide image ch1-hide-background',
+            'hide image ch1-hide-bitedrew',
             'and: I was so sure we were screwed.',
             {
                 Choice: {
