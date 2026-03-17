@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Web.WebView2.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,19 +57,28 @@ namespace CannibalCasket.Monogatari.NetFX.Forms
         {
             try
             {
-                await webView21.EnsureCoreWebView2Async(null);
+                var options = new CoreWebView2EnvironmentOptions()
+                {
+                    AdditionalBrowserArguments = "--allow-file-access-from-files --disable-web-security"
+                };
 
-                //webView21.WebMessageReceived += WebView21_WebMessageReceived;
-
-                //await webView21.CoreWebView2.CallDevToolsProtocolMethodAsync("Log.enable", "{}");
-                //var logEventReceiver = webView21.CoreWebView2.GetDevToolsProtocolEventReceiver("Log.entryAdded");
-                //logEventReceiver.DevToolsProtocolEventReceived += LogEventReceiver_DevToolsProtocolEventReceived;
-
-                // webView21.CoreWebView2.Settings.
+                var env = await CoreWebView2Environment.CreateAsync(null, null, options);
+                await webView21.EnsureCoreWebView2Async(env);
 
                 string appPath = AppDomain.CurrentDomain.BaseDirectory;
+                string wwwroot = Path.Combine(appPath, "wwwroot");
                 string htmlPath = Path.Combine(appPath, "wwwroot\\index.html");
-                webView21.Source = new Uri(htmlPath);
+
+                webView21.CoreWebView2.SetVirtualHostNameToFolderMapping("myapp.local", wwwroot, CoreWebView2HostResourceAccessKind.Allow);
+
+                webView21.WebMessageReceived += WebView21_WebMessageReceived;
+
+                await webView21.CoreWebView2.CallDevToolsProtocolMethodAsync("Log.enable", "{}");
+                var logEventReceiver = webView21.CoreWebView2.GetDevToolsProtocolEventReceiver("Log.entryAdded");
+                logEventReceiver.DevToolsProtocolEventReceived += LogEventReceiver_DevToolsProtocolEventReceived;
+
+
+                webView21.Source = new Uri("https://myapp.local/index.html");
 
                 webView21.KeyUp += WebView21_KeyUp;
             }
@@ -76,6 +86,16 @@ namespace CannibalCasket.Monogatari.NetFX.Forms
             {
                 Console.WriteLine(ex);
             }
+        }
+
+        private void LogEventReceiver_DevToolsProtocolEventReceived(object sender, CoreWebView2DevToolsProtocolEventReceivedEventArgs e)
+        {
+            Console.WriteLine(e);
+        }
+
+        private void WebView21_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            Console.WriteLine(e);
         }
 
         private void WebView21_KeyUp(object sender, KeyEventArgs e)

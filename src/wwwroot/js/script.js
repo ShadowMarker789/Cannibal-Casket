@@ -182,7 +182,7 @@ monogatari.script({
             },
             'dev: Then we can begin.',
             () => {
-                youtubePlayer.cueVideoById('PHX0PUZJDwA');
+                cueVideo('PHX0PUZJDwA');
             },
             '...',
             () => {
@@ -264,7 +264,7 @@ monogatari.script({
             'If the warden checks inside the fridge you\'re both done for.',
             () => {
                 stopVideo();
-                youtubePlayer.cueVideoById('xoZcO_3cYoA');
+                cueVideo('xoZcO_3cYoA');
             },
             'and: Ashley! The warden is coming!!',
             () => {

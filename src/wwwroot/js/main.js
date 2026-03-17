@@ -73,10 +73,29 @@ $_ready(() => {
 });
 
 function stopVideo() {
-    youtubePlayer.stopVideo();
+    try {
+        youtubePlayer.stopVideo();
+    }
+    catch (ex) {
+        console.error(ex);
+    }
 }
 
 function startVideo() {
-    console.log('Youtube player start requested!');
-    youtubePlayer.playVideo();
+    try {
+        console.log('Youtube player start requested!');
+        youtubePlayer.playVideo();
+    }
+    catch (ex) {
+        console.error(ex);
+    }
+}
+
+function cueVideo(videoId) {
+    try {
+        youtubePlayer.cueVideoById(videoId);
+    }
+    catch (ex) {
+        console.error(ex);
+    }
 }
