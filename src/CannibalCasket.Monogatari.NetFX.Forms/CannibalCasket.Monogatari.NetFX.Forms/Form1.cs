@@ -69,7 +69,7 @@ namespace CannibalCasket.Monogatari.NetFX.Forms
                 string wwwroot = Path.Combine(appPath, "wwwroot");
                 string htmlPath = Path.Combine(appPath, "wwwroot\\index.html");
 
-                webView21.CoreWebView2.SetVirtualHostNameToFolderMapping("myapp.local", wwwroot, CoreWebView2HostResourceAccessKind.Allow);
+                webView21.CoreWebView2.SetVirtualHostNameToFolderMapping("shadowmarker789.github.io", wwwroot, CoreWebView2HostResourceAccessKind.Allow);
 
                 webView21.WebMessageReceived += WebView21_WebMessageReceived;
 
@@ -78,7 +78,7 @@ namespace CannibalCasket.Monogatari.NetFX.Forms
                 logEventReceiver.DevToolsProtocolEventReceived += LogEventReceiver_DevToolsProtocolEventReceived;
 
 
-                webView21.Source = new Uri("https://myapp.local/index.html");
+                webView21.Source = new Uri("https://shadowmarker789.github.io/index.html");
 
                 webView21.KeyUp += WebView21_KeyUp;
             }

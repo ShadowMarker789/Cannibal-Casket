@@ -103,6 +103,8 @@ monogatari.assets('sounds', {
     'Earth5': 'Earth5.flac',
     'Earth7': 'Earth7.flac',
     'cannibal-casket-chapter-transition-music-box': 'cannibal-casket-chapter-transition-music-box.flac',
+    'decision': 'decision.flac',
+    'walk-out': 'walk-out.flac',
 });
 
 // Define the videos used in the game.
@@ -232,6 +234,7 @@ monogatari.script({
             'ash: ... And this mop sucks! Argh!',
             'play sound wet-squish-4',
             'The blood on the floor has attachment issues.',
+            'play sound decision',
             {
                 Choice: {
                     hard: {
@@ -288,6 +291,7 @@ monogatari.script({
                 startVideo();
             },
             'Shit. Fuck.',
+            'play sound walk-out',
             'You grab the mop and dash for the balcony.',
             'It feels farther than before. If you were smarter you would have started with the fridge first, mopping your way towards the balcony.',
             'Unfortunately, it appears that your immense intellect is solely dedicated towards self-deprecation, self-loathing, and regret.',
@@ -298,6 +302,7 @@ monogatari.script({
             'jump ch1_closetHideChoiceBeforeChoose'
         ],
         'ch1_closetHideChoiceBeforeChoose': [
+            'play sound decision',
             {
                 'Choice': {
                     'Dialog': 'QUICK!',
@@ -323,6 +328,7 @@ monogatari.script({
             'jump ch1_closetHideChoiceBeforeChoose'
         ],
         'ch1_closetHideChoiceRunFaster': [
+            'play sound walk-out',
             'You run faster. ',
             '... and you pray.',
             'Which is odd for you, because really - what sort of god or goddess would take pity on you, of all things?',
