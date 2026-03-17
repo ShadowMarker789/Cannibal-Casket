@@ -117,6 +117,7 @@ monogatari.assets('images', {
     'ch1-nearly-caught-test-1': 'rclisk324-test-1.jpg',
     'ch1-hide-background': 'ch1-hide-background.png',
     'ch1-hide-bitedrew': 'ch1-hide-bitedrew.png',
+    'cannibal-casket-chapter-1-intro': 'cannibal-casket-chapter-1-intro.png',
 });
 
 // Define the backgrounds for each scene.
@@ -181,9 +182,21 @@ monogatari.script({
                 }
             },
             'dev: Then we can begin.',
+            '...',
             () => {
                 cueVideo('PHX0PUZJDwA');
             },
+            'This is a collaborative fanwork, designed to pay respects to the game known as The Coffin of Andy and Leyley.',
+            'The Coffin of Andy and Leyley is published by Kit9 Studio and is unaffiliated with this project.',
+            'All visual assets herein are created from the community\'s artists and are original works.',
+            'Music you may hear is hosted on Youtube, played through the Youtube IFrame API.',
+            'This fanwork does not seek to compete with nor replace its inspiring title.',
+            'As a fanwork, this is distinctly non-canon.',
+            'Please view this as an interactive fanfiction.',
+            '...',
+            'show image cannibal-casket-chapter-1-intro with fadeIn duration 3s',
+            '...',
+            'hide image cannibal-casket-chapter-1-intro with fadeOut duration 3s',
             '...',
             () => {
                 startVideo();
@@ -311,6 +324,7 @@ monogatari.script({
             'Which is odd for you, because really - what sort of god or goddess would take pity on you, of all things?',
             'play sound Earth1',
             'But then there\'s a loud clonk from the front door, followed by expletives and shouting.',
+            'play sound Blow1',
             'warden: <b>ARGH! MY FOOT!</b>',
             '... Did your prayers actually reach someone? Something?',
             'You don\'t stop to give thanks. You bolt down the balcony, picking up the plank as you go just before the door opens.',
