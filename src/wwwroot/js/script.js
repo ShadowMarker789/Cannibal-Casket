@@ -102,7 +102,7 @@ monogatari.assets('sounds', {
     'Earth3': 'Earth3.flac',
     'Earth5': 'Earth5.flac',
     'Earth7': 'Earth7.flac',
-
+    'cannibal-casket-chapter-transition-music-box': 'cannibal-casket-chapter-transition-music-box.flac',
 });
 
 // Define the videos used in the game.
@@ -194,13 +194,17 @@ monogatari.script({
             'As a fanwork, this is distinctly non-canon.',
             'Please view this as an interactive fanfiction.',
             '...',
-            'show image cannibal-casket-chapter-1-intro with fadeIn duration 3s',
-            '...',
-            'hide image cannibal-casket-chapter-1-intro with fadeOut duration 3s',
+            'clear',
+            'play sound cannibal-casket-chapter-transition-music-box',
+            'show image cannibal-casket-chapter-1-intro with fadeIn duration 2s',
+            'wait 2000',
+            'hide image cannibal-casket-chapter-1-intro with fadeOut duration 2s',
+            'wait 2000',
             '...',
             () => {
                 startVideo();
             },
+            '...',
             'You stride into the neighbor\'s apartment as fast as your little legs can carry you, mop in hand. ',
             'ash: .....',
             'ash: WHY IS THERE SO MUCH BLOOD?!',

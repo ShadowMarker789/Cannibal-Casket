@@ -23,7 +23,7 @@
  * =============================================================================
  **/
 
-let youtubePlayer = {};
+let youtubePlayer = { isReady: false };
 let youtubePlayerState = 0;
 let youtubePlayerDesiredState = 1;
 
@@ -40,24 +40,36 @@ $_ready(() => {
 
         // a.3. This function creates an <iframe> (and YouTube player)
         //    after the API code downloads.
-        youtubePlayer = new YT.Player('youtube-player', {
-            videoId: 'ppriAsvBlhI',
-            playerVars: {
-                'playsinline': 1
-            },
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-        });
+        try {
+            console.log("Creating YT Player~");
+            youtubePlayer = new YT.Player('youtube-player', {
+                videoId: 'ppriAsvBlhI',
+                playerVars: {
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
+                }
+            });
+        }
+        catch (ex) {
+            console.error(ex);
+        }
+
+        function onPlayerError(event) {
+            console.error(event);
+        }
 
         // 4. The API will call this function when the video player is ready.
         function onPlayerReady(event) {
             console.log("onPlayerReady fired~");
+            youtubePlayer.isReady = true;
             // event.target.playVideo();
             // startVideo();
 
-            // setTimeout(startVideo, 1000);
+            setInterval(setYoutubeVolume, 1000);
         }
 
         // 5. The API calls this function when the player's state changes.
@@ -69,11 +81,25 @@ $_ready(() => {
                 // TODO: Do something if it's playing 
             }
         }
+
+        function setYoutubeVolume() {
+            try {
+                if (!youtubePlayer.isReady) return;
+
+                // 0.0 .. 1.0 
+                const musicVol = monogatari.preference('Volume').Music;
+                youtubePlayer.setVolume(musicVol * 100.0);
+            }
+            catch (ex) {
+                console.error(ex);
+            }
+        }
     });
 });
 
 function stopVideo() {
     try {
+        if (!youtubePlayer.isReady) return;
         youtubePlayer.stopVideo();
     }
     catch (ex) {
@@ -84,6 +110,7 @@ function stopVideo() {
 function startVideo() {
     try {
         console.log('Youtube player start requested!');
+        if (!youtubePlayer.isReady) return;
         youtubePlayer.playVideo();
     }
     catch (ex) {
@@ -93,6 +120,7 @@ function startVideo() {
 
 function cueVideo(videoId) {
     try {
+        if (!youtubePlayer.isReady) return;
         youtubePlayer.cueVideoById(videoId);
     }
     catch (ex) {
