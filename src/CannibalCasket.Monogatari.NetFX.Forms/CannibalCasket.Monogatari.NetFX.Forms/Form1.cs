@@ -59,7 +59,7 @@ namespace CannibalCasket.Monogatari.NetFX.Forms
             {
                 var options = new CoreWebView2EnvironmentOptions()
                 {
-                    AdditionalBrowserArguments = "--allow-file-access-from-files --disable-web-security"
+                    AdditionalBrowserArguments = "--allow-file-access-from-files --disable-web-security --force-prefers-no-reduced-motion"
                 };
 
                 var env = await CoreWebView2Environment.CreateAsync(null, null, options);
@@ -81,11 +81,18 @@ namespace CannibalCasket.Monogatari.NetFX.Forms
                 webView21.Source = new Uri("https://shadowmarker789.github.io/index.html");
 
                 webView21.KeyUp += WebView21_KeyUp;
+
+                webView21.NavigationCompleted += WebView21_NavigationCompleted;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
+        }
+
+        private void WebView21_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        {
+            this.pictureBox1.Visible = false;
         }
 
         private void LogEventReceiver_DevToolsProtocolEventReceived(object sender, CoreWebView2DevToolsProtocolEventReceivedEventArgs e)

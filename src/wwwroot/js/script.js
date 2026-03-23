@@ -3,7 +3,8 @@
 monogatari.storage({
     closeness: 0.0,
     passion: 0.0,
-    anger: 0.0
+    anger: 0.0,
+    play: 0.0
 });
 
 // Modify the Main Menu
@@ -345,16 +346,18 @@ monogatari.script({
             '... Did your prayers actually reach someone? Something?',
             'You don\'t stop to give thanks. You bolt down the balcony, picking up the plank as you go just before the door opens.',
             'Your pace slows as you reach Andrew. You cover your panting mouth with your hands after slowly putting down the plank and mop to keep quiet.',
-            'show image ch1-hide-background with fadein',
-            'show image ch1-hide-staredrew-straight with fadein',
+            'show image ch1-hide-background with fadeIn',
+            'show image ch1-hide-staredrew-straight with fadeIn',
             'Andrew is hiding right by the balcony, listening.',
-            'show image ch1-hide-closeshley with fadein',
+            'show image ch1-hide-closeshley with fadeIn',
             'hide image ch1-hide-staredrew-straight',
             'show image ch1-hide-staredrew-right',
             'You join him there. ',
             'warden: Greetings and salutations!',
             'hide image ch1-hide-staredrew-right',
             'show image ch1-hide-bitedrew',
+            'hide image ch1-hide-closeshley',
+            'show image ch1-hide-closeshley with shakeY',
             'The warden\'s loud voice almost makes you jump.',
             'His footsteps can be heard creaking the floor as he moves around the apartment.',
             'hide image ch1-hide-bitedrew',
@@ -406,6 +409,7 @@ monogatari.script({
             'Andrew breathes another sigh of relief, almost collapsing against the wall that he flops against, the tension leaving his body.',
             'hide image ch1-hide-background',
             'hide image ch1-hide-bitedrew',
+            'hide image ch1-hide-sushley',
             'and: I was so sure we were screwed.',
             {
                 Choice: {
@@ -481,6 +485,7 @@ monogatari.script({
             () => {
                 monogatari.storage.anger + 0.05;
                 monogatari.storage.closeness + 0.05;
+                monogatari.storage.play += 0.2;
             },
             'You totally saved his ass.',
             'Gloating time~',
