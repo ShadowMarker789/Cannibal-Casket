@@ -140,7 +140,7 @@ monogatari.settings({
 	// Default: true
 	// If this is set to false, the "Back" button on the quick menu will not be
 	// shown and the left arrow keyboard shortcut will be disabled.
-	'AllowRollback': true,
+	'AllowRollback': false,
 
 	// Whether experimental features should be enabled or not. Default: false
 	// These features are unfinished and unstable, chances are they will still
