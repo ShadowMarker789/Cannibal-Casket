@@ -17,8 +17,17 @@
  * ===========================
 **/
 
+message-modal div {
+	width: auto;
+	padding: 0.5rem
+}
+
+.modal__content {
+	padding: 0.5rem;
+}
+
 main-menu {
-	display:block!important;
+	display: block !important;
 }
 main-screen {
 	background: black;

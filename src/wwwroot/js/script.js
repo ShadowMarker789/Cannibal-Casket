@@ -31,16 +31,12 @@ monogatari.action('message').messages({
 		`
     },
     'TCOAAL': {
-        'title': 'The Coffin of Andy and Leyley on Steam',
+        'title': 'The Coffin of Andy and Leyley',
         subtitle: 'It\'s good, go buy it and play it.',
         body: `
-		<div>
-		<a href="https://store.steampowered.com/app/2378900/The_Coffin_of_Andy_and_Leyley/" target="_blank">
-		<p>
-		Buy The Coffin of Andy and Leyley. (Steam Store Page)
-		</p>
-		</a>
-		</div>
+        <a href="https://store.steampowered.com/app/2378900/The_Coffin_of_Andy_and_Leyley/" target="_blank" alt="Buy The Coffin of Andy and Leyley. (Steam Store Page)">
+        <img style="width:75%;position:unset;display:block;margin-right:auto;margin-left:auto;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2378900/0badd5423ec8cb36d543b7b156121ac2d38ef330/header.jpg?t=1774434375"/>
+        </a>
 		`
     }
 });
@@ -106,6 +102,8 @@ monogatari.assets('sounds', {
     'cannibal-casket-chapter-transition-music-box': 'cannibal-casket-chapter-transition-music-box.flac',
     'decision': 'decision.flac',
     'walk-out': 'walk-out.flac',
+    'closet-close': 'closet-close.flac',
+    'single-footstep': 'single-footstep.flac',
 });
 
 // Define the videos used in the game.
@@ -333,6 +331,7 @@ monogatari.script({
             'end'
         ],
         'ch1_closetHideChoiceHideInCloset': [
+            'play sound closet-close',
             'You hide in the closet.',
             'dev: ..... Which puts you on the same route as the base game. ',
             'dev: Want to find out what happens?',
