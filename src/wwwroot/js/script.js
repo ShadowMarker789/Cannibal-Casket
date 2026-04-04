@@ -159,6 +159,10 @@ monogatari.characters({
     },
     'warden': {
         name: 'Warden'
+    },
+    'hide-textbox': {
+        name: '',
+        color: '#00000000'
     }
 });
 
@@ -206,11 +210,10 @@ monogatari.script({
             'This fanwork does not seek to compete with nor replace its inspiring title.',
             'As a fanwork, this is distinctly non-canon.',
             'Please view this as an interactive fanfiction.',
-            '...',
-            'clear',
             'play sound cannibal-casket-chapter-transition-music-box',
             'show image cannibal-casket-chapter-1-intro with fadeIn duration 2s',
-            'wait 3000',
+            'hide-textbox:hide-textbox   ',
+            'wait 500',
             'hide image cannibal-casket-chapter-1-intro with fadeOut duration 2s',
             'wait 2000',
             '...',
@@ -420,6 +423,8 @@ monogatari.script({
             'warden: ... Yeah, I checked. Look, I gotta get out of here before I puke, the smell is awful.',
             'warden: The cleanup crew can deal with this, I am not touching that.',
             'warden: ... Fine, I\'ll file the paperwork, happy?',
+            'hide image ch1-hide-bitedrew',
+            'show image ch1-hide-relievedrew',
             'To your relief, the warden can be heard leaving the room, a small wooden clonk audible before his footsteps fade off into the distance.',
             'You\'ve finally caught your breath, no longer panting like a bitch in heat.',
             'and: Oh God that was too close...',
@@ -428,7 +433,7 @@ monogatari.script({
             'hide image ch1-hide-background-door with fadeOut',
             'hide image ch1-hide-background-wall with fadeOut',
             'hide image ch1-hide-background-box with fadeOut',
-            'hide image ch1-hide-bitedrew',
+            'hide image ch1-hide-relievedrew',
             'hide image ch1-hide-sushley',
             'and: I was so sure we were screwed.',
             {
