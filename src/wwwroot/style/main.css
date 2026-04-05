@@ -20,9 +20,11 @@
 /* hide textbox when desired */
 
 #monogatari > visual-novel > game-screen > text-box[data-speaking="hide-textbox"] {
-	border-color: #00000001;
-	background-color: #00000001;
+	border-color: #00000001!important;
+	background-color: #00000001!important;
+	color: #00000001!important;
 }
+
 /* Speaker name */
 #monogatari > visual-novel > game-screen > text-box > div:nth-child(1) > span {
 	text-align: center;
