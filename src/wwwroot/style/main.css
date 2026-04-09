@@ -17,12 +17,19 @@
  * ===========================
 **/
 
-/* hide textbox when desired */
+/* choice buttons */
 
+#monogatari > visual-novel > game-screen > choice-container > div > button {
+	border-style: groove;
+	border-color: gray;
+	background-color: #222A;
+}
+
+/* hide textbox when desired */
 #monogatari > visual-novel > game-screen > text-box[data-speaking="hide-textbox"] {
-	border-color: #00000001!important;
-	background-color: #00000001!important;
-	color: #00000001!important;
+	border-color: #00000001 !important;
+	background-color: #00000001 !important;
+	color: #00000001 !important;
 }
 
 /* Speaker name */
