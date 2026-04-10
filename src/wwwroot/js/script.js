@@ -1,10 +1,12 @@
 /* global monogatari */
 
+monogatari.debug.level(5);
+
 monogatari.storage({
     closeness: 0.0,
     passion: 0.0,
     anger: 0.0,
-    play: 0.0
+    playfulness: 0.0
 });
 
 // Modify the Main Menu
@@ -133,7 +135,9 @@ monogatari.assets('images', {
     'cannibal-casket-chapter-1-intro': 'cannibal-casket-chapter-1-intro.png',
     'ch1-run-from-warden-look-closet': 'ch1-run-from-warden-look-closet.jpg',
     'ch1-run-from-warden-out-door': 'ch1-run-from-warden-out-door.jpg',
-    'ch1-run-from-warden-run-pray':'ch1-run-from-warden-run-pray.jpg',
+    'ch1-run-from-warden-run-pray': 'ch1-run-from-warden-run-pray.jpg',
+    'ch1-hikari-ashley-eat-sad': 'ch1-hikari-ashley-eat-sad.jpg',
+    'ch1-hikari-ashley-eat-hopeful': 'ch1-hikari-ashley-eat-hopeful.jpg',
 });
 
 // Define the backgrounds for each scene.
@@ -462,6 +466,10 @@ monogatari.script({
                     team: {
                         Text: 'Emphasize your teamwork, try to bond over it',
                         Do: 'jump ch1_postWardenBond'
+                    },
+                    nearMiss: {
+                        Text: 'Garner sympathy by how close you were to being caught',
+                        Do: 'jump ch1_postWardenNearMiss'
                     }
                 }
             },
@@ -506,9 +514,8 @@ monogatari.script({
             'The bedroom door closes with finality before you can respond.',
             'Well, shit.',
             'Too late to have regrets, not that you do, but you do.',
-            'He still deserved it. And worse.',
             'Everything seems to be going wrong as of late.',
-            '',
+            'You don\'t even feel better after that.',
             'Whatever.',
             'You pick yourself off the floor, shaking a little as you get up.',
             'You\'re going to feel this tomorrow, definitely.',
@@ -517,14 +524,44 @@ monogatari.script({
             'Nor did he appreciate your cooking yesterday either.',
             'So today\'s unappreciation is just more of the same from him.',
             'It doesn\'t bother you, except that it does.',
-            'The growl of your stomach interrupts your thoughts - TODO: FINISH THIS TRAIN OF THOUGHT',
+            'The growl of your stomach interrupts your thoughts.',
+            '\'Nutrients Required!\' it barks at you.',
+            'Everything and everyone is barking at you these days.',
+            'You don\'t have the energy to cook, but you still have leftovers in the fridge that you can microwave.',
+            'TODO: play microwave sound',
+            'With a huff, you place the leftovers in the microwave and begin reheating it.',
+            'It gives you some time to reflect, not that you want to.',
+            'What are you even doing?',
+            'Not just this, not just being locked in the apartment.',
+            'You don\'t have any plans. Never did, if you were honest with yourself. Which you never are.',
+            'To that end, being quaratined has been a godsend for you.',
+            '... aside from the starvation, running out of essentials...',
+            'It\'s been rough, but you genuinely enjoyed being close to your Andy.',
+            '... Well, most of the time at least.',
+            'You had hope that you\'d get closer to Andy over time.',
+            'Especially considering that there\'s literally nothing else to do here.',
+            'But it seems that every time you think you\'re making progress you open your dang mouth and ruin it all again.',
+            'TODO: play microwave ding sound and stop microwave loop',
+            'Your food\'s ready. You can stop reflecting.',
+            'TODO: play sfx of plates or clinking or whatnot',
+            'show image ch1-hikari-ashley-eat-sad',
+            'You try to stop, distracting yourself with your food.',
+            'It doesn\'t taste as good as it did yesterday.',
+            'It\'s missing something.',
+            'Company. Andy\'s.',
+            'ash: There\'s always tomorrow.',
+            'There\'s always been a tomorrow.',
+            'Always will be.',
+            'That\'s what makes it such a great excuse for your inadequacies, for your mistakes, and for your shortcomings.',
+            'Of which there are plenty.',
+            'You sorry excuse for a human.',
+            'Off to bed with you. You\'re too tired to do anything but mope in your ??? TODO: FINISH THIS TRAIN OF THOUGHT!',
             'end'
         ],
         'ch1_postWardenGloat': [
             () => {
-                monogatari.storage.anger + 0.05;
-                monogatari.storage.closeness + 0.05;
-                monogatari.storage.play += 0.2;
+                monogatari.storage.closeness += 0.05;
+                monogatari.storage.playfulness += 0.1;
             },
             'You totally saved his ass.',
             'Gloating time~',
@@ -535,11 +572,10 @@ monogatari.script({
             'TODO: Finish this train of thought! SORRY GAME ISN\'T DONE YET!',
             'end'
         ],
-        'ch1_postWardenBond': [
+        'ch1_postWardenNearMiss': [
             () => {
-                let closeness = monogatari.storage('closeness');
-                closeness = closeness + 0.1;
-                monogatari.storage({ closeness: closeness });
+                monogatari.storage.closeness += 0.05;
+                monogatari.storage.passion += 0.05;
             },
             'ash: Yeah, it was really close...',
             'You pout sheepishly at him, putting on your best cute face.',
@@ -564,7 +600,8 @@ monogatari.script({
             'With that very same cleaver, too.',
             'ash: Well... thanks, I guess...',
             'and: You\'re welcome, and thanks for mopping.',
-            'Oh, would you look at that. He CAN thank you.',
+            'His praise sends a warm rush through you.',
+            'Oh, the things you\'d do for him if he\'d only ask, say please, and thank you for it.',
             'ash: It was good teamwork! Now how about dinner?',
             'Nope, Andrew\'s face wrinkles instantly.',
             'and: No thanks, I\'ll pass.',
@@ -580,7 +617,8 @@ monogatari.script({
             'and: Good night, Ashley.',
             'ash: ... Good night.',
             'hide image ch1-andrew-door-1',
-            'The bedroom door clicks shut softly, maybe this little adventure did bring you closer?',
+            'The bedroom door clicks shut softly.',
+            'Maybe this little adventure did bring you closer?',
             'It\'s hard to tell, sometimes. He feels closer sometimes, then doesn\'t.',
             'You pick yourself up off the ground, shaking a little bit as you do.',
             'The adrenaline has worn off, with a hungry exhaustion taking its place.',
@@ -589,11 +627,7 @@ monogatari.script({
             'You don\'t have the energy to cook a whole meal, not without Andrew to motivate you.',
             'So instead you microwave the leftovers from last night.',
             'It\'s definitely missing something - company.',
-            'ash: There\'s always tomorrow.',
-            'There\'s always been a tomorrow.',
-            'Always will be.',
-            'That\'s what makes it such a great excuse for your inadequacies, for your mistakes, and for your shortcomings.',
-            'Of which there are plenty.',
+
             'You wash your dishes in silence, your mind wondering...',
             'You\'re still stuck here, the two of you. That hasn\'t changed.',
             'But now you\'re fed at least. For now.',
@@ -615,6 +649,13 @@ monogatari.script({
                 }
             },
             'end'
+        ],
+        'ch1_postWardenBond': [
+            () => {
+                monogatari.storage.closeness += 0.05;
+                monogatari.storage.passion += 0.05;
+            },
+            
         ],
         'ch1_earlyJustGoToBed': [
             () => {
