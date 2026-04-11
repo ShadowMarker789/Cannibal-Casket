@@ -217,7 +217,7 @@ monogatari.script({
             'This fanwork does not seek to compete with nor replace its inspiring title.',
             'As a fanwork, this is distinctly non-canon.',
             'Please view this as an interactive fanfiction.',
-            'play sound cannibal-casket-chapter-transition-music-box',
+            'play sound cannibal-casket-chapter-transition-music-box with volume 50',
             'show image cannibal-casket-chapter-1-intro with fadeIn duration 2s',
             'hide-textbox:hide-textbox a.',
             'hide image cannibal-casket-chapter-1-intro with fadeOut duration 2s',
@@ -369,6 +369,9 @@ monogatari.script({
             'show image ch1-run-from-warden-out-door with fadeIn',
             'You don\'t stop to give thanks. You bolt out back door, picking up the plank as you go just before the door opens.',
             'Your pace slows as you reach Andrew. You cover your panting mouth with your hands after slowly putting down the plank and mop to keep quiet.',
+            () => {
+                cueVideo('I1gcQMs7los');
+            },
             'hide image ch1-run-from-warden-out-door with fadeOut',
             'show image ch1-hide-background-frame with fadeIn',
             'show image ch1-hide-background-box with fadeIn',
@@ -380,6 +383,9 @@ monogatari.script({
             'hide image ch1-hide-staredrew-straight',
             'show image ch1-hide-staredrew-right',
             'You join him there. ',
+            () => {
+                startVideo();
+            },
             'warden: Greetings and salutations!',
             'hide image ch1-hide-staredrew-right',
             'show image ch1-hide-bitedrew',
@@ -534,10 +540,10 @@ monogatari.script({
             'What are you even doing?',
             'Not just this, not just being locked in the apartment.',
             'You don\'t have any plans. Never did, if you were honest with yourself. Which you never are.',
-            'To that end, being quaratined has been a godsend for you.',
+            'To that end, being quarantined has been a godsend for you.',
             '... aside from the starvation, running out of essentials...',
             'It\'s been rough, but you genuinely enjoyed being close to your Andy.',
-            '... Well, most of the time at least.',
+            '... Well, most of the time at least...',
             'You had hope that you\'d get closer to Andy over time.',
             'Especially considering that there\'s literally nothing else to do here.',
             'But it seems that every time you think you\'re making progress you open your dang mouth and ruin it all again.',
@@ -655,7 +661,10 @@ monogatari.script({
                 monogatari.storage.closeness += 0.05;
                 monogatari.storage.passion += 0.05;
             },
-            
+            'TODO: FIGURE OUT HOW THE FUCK YOU\'RE SUPPOSED TO BOND WITH ANDY!',
+
+
+            'end'
         ],
         'ch1_earlyJustGoToBed': [
             () => {
