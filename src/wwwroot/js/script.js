@@ -362,11 +362,11 @@ monogatari.script({
             'show image ch1-run-from-warden-run-pray with shakeY',
             'play sound Earth1',
             'But then there\'s a loud clonk from the front door, followed by expletives and shouting.',
+            'hide image ch1-run-from-warden-run-pray with fadeOut',
+            'show image ch1-run-from-warden-out-door with fadeIn',
             'play sound Blow1',
             'warden: <b>ARGH! MY FOOT!</b>',
             '... Did your prayers actually reach someone? Something?',
-            'hide image ch1-run-from-warden-run-pray with fadeOut',
-            'show image ch1-run-from-warden-out-door with fadeIn',
             'You don\'t stop to give thanks. You bolt out back door, picking up the plank as you go just before the door opens.',
             'Your pace slows as you reach Andrew. You cover your panting mouth with your hands after slowly putting down the plank and mop to keep quiet.',
             () => {
@@ -451,12 +451,14 @@ monogatari.script({
             'You\'ve finally caught your breath, no longer panting like a bitch in heat.',
             'and: Oh God that was too close...',
             'Andrew breathes another sigh of relief, almost collapsing against the wall that he flops against, the tension leaving his body.',
+            'He runs his hand through his hair, now slick with sweat as he slides down the wall.',
             'hide image ch1-hide-background-frame with fadeOut',
             'hide image ch1-hide-background-door with fadeOut',
             'hide image ch1-hide-background-wall with fadeOut',
             'hide image ch1-hide-background-box with fadeOut',
             'hide image ch1-hide-relievedrew',
             'hide image ch1-hide-sushley',
+            'TODO: Return to character portraits here!!',
             'and: I was so sure we were screwed.',
             {
                 Choice: {
@@ -483,9 +485,8 @@ monogatari.script({
         ],
         'ch1_postWardenPickFight': [
             () => {
-                let anger = monogatari.storage('anger');
-                anger = anger + 0.1;
-                monogatari.storage({ anger: anger });
+                monogatari.storage.anger += 0.1;
+                monogatari.storage.ch1_postWardenPickFight = true;
             },
             'Your limbs still burn from the exhaustion of mopping up all that blood.',
             'And you have perfect verbal punching bag right here.',
@@ -568,6 +569,7 @@ monogatari.script({
             () => {
                 monogatari.storage.closeness += 0.05;
                 monogatari.storage.playfulness += 0.1;
+                monogatari.storage.ch1_postWardenGloat = true;
             },
             'You totally saved his ass.',
             'Gloating time~',
@@ -575,13 +577,40 @@ monogatari.script({
             'You bring your hand to your chest that you puff out dramatically.',
             'Or at least try to - your breathing isn\'t quite all there yet.',
             'ash: You can thank me now!',
+            'You wait for Andrew\'s response, having difficulty keeping your chest puffed up. ',
+            'and: ... Alright, thanks, Ashley.',
+            'and: Good job with the mopping.',
+            '... Ashley? ASHLEY?!',
+            'Why not leyley?!',
+            {
+                Choice: {
+                    Dialog: 'Make a big deal out of it?',
+                    yes: {
+                        Text: 'Yes!',
+                        Do: 'jump ch1_postWardenGloatYesLeyley',
+                    },
+                    no: {
+                        Text: 'No...',
+                        Do: 'jump ch1_postWardenGloatNoLeyley',
+                    }
+                }
+            },
+            'end'
+        ],
+        'ch1_postWardenGloatYesLeyley': [
             'TODO: Finish this train of thought! SORRY GAME ISN\'T DONE YET!',
             'end'
         ],
+        'ch1_postWardenGloatNoLeyley': [
+            'TODO: Finish this train of thought! SORRY GAME ISN\'T DONE YET!',
+            'end'
+        ],
+
         'ch1_postWardenNearMiss': [
             () => {
                 monogatari.storage.closeness += 0.05;
                 monogatari.storage.passion += 0.05;
+                monogatari.storage.ch1_postWardenNearMiss = true;
             },
             'ash: Yeah, it was really close...',
             'You pout sheepishly at him, putting on your best cute face.',
@@ -630,15 +659,35 @@ monogatari.script({
             'The adrenaline has worn off, with a hungry exhaustion taking its place.',
             'Still, you worked hard today, and your diligent efforts paid off.',
             '... But they did work up an appetite.',
+            '\'Nutrients Required!\' your stomach barks at you.',
+            'A familiar bark. One that you can actually satisfy for a change.',
             'You don\'t have the energy to cook a whole meal, not without Andrew to motivate you.',
             'So instead you microwave the leftovers from last night.',
-            'It\'s definitely missing something - company.',
-
-            'You wash your dishes in silence, your mind wondering...',
+            'TODO: Microwave sfx loop begin here',
+            'TODO: Show happier Ashley microwave',
+            'While the microwave nukes your \'food\' you have some time to reflect.',
             'You\'re still stuck here, the two of you. That hasn\'t changed.',
-            'But now you\'re fed at least. For now.',
-            'You\'re almost tempted to call that hope.',
-            'But you know better than to have that.',
+            'But you\'ve been feeling closer to your Andy lately.',
+            'Don\'t they say that near-death experiences bring people closer?',
+            'You can only imagine what would have happened if the warden caught you.',
+            'So this definitely counts, right?',
+            'The ding of the microwave interrupts your train of thought for a moment, signaling that your nutrients are ready.',
+            'TODO: Play dish clink sounds',
+            'YUM YUM CANNIBALISM YUM YUM!',
+            'TODO: Show happy Ashley eating food',
+            'Somehow the \'food\' tastes worse than yesterday.',
+            'It\'s definitely missing something - company.',
+            'Still, all things considered, you\'re doing well the both of you.',
+            'You have food. That\'s good. ',
+            'You could survive for maybe another month if you stretch out the \'supplies\'. ',
+            'You\'re feeling pretty hopeful, actually. ',
+            'Which is rare for you. ',
+            'Normally, you would know better than to be hopeful. ',
+            'But you can\'t resist - your smile just won\'t go away, not yet.',
+            'TODO: play dish clink sounds',
+            'TODO: delay',
+            'TODO: play dish washing sfx',
+            'Since you actually expect to have food later, you wash your dishes up this time instead of leaving them in the sink.',
             'You\'re tired, and you head to bed, softly opening the bedroom door, just in case Andrew\'s awake.',
             'He\'s got his back turned to you, but you can tell he\'s still awake.',
             {
@@ -660,10 +709,37 @@ monogatari.script({
             () => {
                 monogatari.storage.closeness += 0.05;
                 monogatari.storage.passion += 0.05;
+                monogatari.storage.ch1_postWardenBond = true;
             },
-            'TODO: FIGURE OUT HOW THE FUCK YOU\'RE SUPPOSED TO BOND WITH ANDY!',
-
-
+            'You feel a warm little spark in your chest.',
+            'He looks so cute when he\'s all rattled like this.',
+            'Time to remind him why he never has to worry when it\'s just the two of you.',
+            'ash: Aww, Andy~ Look at you - all sweaty and dramatic!',
+            'You bounce on your toes a little bit, closing the distance until you\'re right in his personal space.',
+            'You can smell the stress on him mixed in with the scent of his sweat.',
+            '... And you\'d be lying if you said you didn\'t like it.',
+            'ash: We\'re a good team, Andy - the best team!',
+            'ash: You distract the warden, I clean up the evidence!',
+            'ash: It\'s like an episode - Andy and Leyley and the magic trick!',
+            'You put on your best cute face, looking up at Andrew expectantly.',
+            'and: ... ?',
+            'Andrew isn\'t buying this at all. ',
+            'That raised eyebrow of his does not indicate success of your bonding attempt. ',
+            'and: ... what are you doing? ',
+            'This isn\'t working at all. ',
+            'Why do you even bother with him? ',
+            'Oh, yeah, that\'s right - he\'s the only person who ever gave a shit about you. ',
+            'ash: ... I am trying to bond with you. ',
+            'and: ... Over cleaning up our neighbor\'s blood??',
+            'ash: ... Yes. ',
+            'You\'re in too deep to bail out now - and you\'re not a quitter!',
+            'ash: ... Is that so strange?',
+            'and: Yes!',
+            'ash: ... Well, nothing\'s been going right lately!',
+            'ash: This is the only success we\'ve had since we got locked down!',
+            'and: ... Can\'t you just be normal about this?',
+            'ash: No. ',
+            'ash: I\'ve seen what normal means for you, and it sucks!',
             'end'
         ],
         'ch1_earlyJustGoToBed': [

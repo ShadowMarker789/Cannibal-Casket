@@ -77,7 +77,6 @@ namespace CannibalCasket.Monogatari.NetFX.Forms
                 var logEventReceiver = webView21.CoreWebView2.GetDevToolsProtocolEventReceiver("Log.entryAdded");
                 logEventReceiver.DevToolsProtocolEventReceived += LogEventReceiver_DevToolsProtocolEventReceived;
 
-
                 webView21.Source = new Uri("https://shadowmarker789.github.io/index.html");
 
                 webView21.KeyUp += WebView21_KeyUp;
