@@ -183,7 +183,8 @@ button:hover {
 
 /* Character Images Styles */
 [data-screen="game"] [data-character] {
-	max-height: 100vh
+	max-height: 100vh;
+	max-width: 33vw;
 }
 
 /* Other Images Styles */

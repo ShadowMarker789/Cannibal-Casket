@@ -43,9 +43,10 @@ $_ready(() => {
         try {
             console.log("Creating YT Player~");
             youtubePlayer = new YT.Player('youtube-player', {
-                videoId: 'ppriAsvBlhI',
+                videoId: 'EVMdW5RgBjo',
                 playerVars: {
-                    'playsinline': 1
+                    'playsinline': 1,
+                    'loop': 1
                 },
                 events: {
                     'onReady': onPlayerReady,
