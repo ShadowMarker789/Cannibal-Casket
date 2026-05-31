@@ -9,6 +9,38 @@ monogatari.storage({
     playfulness: 0.0
 });
 
+// songs for the Youtube API
+
+youtubeSongs = {
+    JestersPity: 'EVMdW5RgBjo',
+    TwistedClowns: 'FRF4s-F1tRA',
+    Forest: 'FPZnSQoN6PE',
+    JealousDoll: 'kvdMNuQMslk',
+    GuardTree: 'KKedfOBRmyA',
+    DreamDance: '6QIgtUIQVNg',
+    DarkBells: 'WdWoAyX1ZMo',
+    WanderingWizard: 'cvVwacvn-hY',
+    PictureBook: 'qjUi4kc-Lpc',
+    DreamingInjection: 'Un0TCzDuDH8',
+    HallucinationConnect: 'r0VAUONNM8c',
+    SheepSway: 'kaNycPi2VCI',
+    Cupid: 'dJaekUyad88',
+    TeddyBear: 'WuwAKdK89ys',
+    CloudChiptune: '_cq2SwYyVDw',
+    HalloweenChiptune: 'EOjx3k08WVw',
+    OldFairyTales: 'wOEld9xzphY',
+    PandoraSyndrome: 'E0M59SFVt-8',
+    PastelVirus: 'bViCZkI96UI',
+    SecretRooms: 'cvyjfeGocc4',
+    SmallMagicBook: 'MgdUw93s8fU',
+    SnailEyes: 'QJfRtuRJCX4',
+    CultistInside: 'rG_XlVBHhCA',
+    CultistOutside: 'rufrGjwsDvg',
+    TickTock: 'bifRbpY-30c',
+    Club: '5zcwZBgUsP4',
+
+}
+
 // Modify the Main Menu
 
 // Set new template
@@ -132,12 +164,14 @@ monogatari.assets('images', {
     'ch1-hide-relievedrew': 'ch1-hide-relievedrew.png',
     'ch1-hide-relievedshley': 'ch1-hide-relievedshley.png',
     'ch1-hide-preyshey': 'ch1-hide-preyshey.png',
+    'ch1-hide-warden-2': 'ch1-hide-warden-2.png',
+    'ch1-hide-warden-3': 'ch1-hide-warden-3.png',
     'cannibal-casket-chapter-1-intro': 'cannibal-casket-chapter-1-intro.png',
     'ch1-run-from-warden-look-closet': 'ch1-run-from-warden-look-closet.jpg',
     'ch1-run-from-warden-out-door': 'ch1-run-from-warden-out-door.jpg',
     'ch1-run-from-warden-run-pray': 'ch1-run-from-warden-run-pray.jpg',
-    'ch1-hikari-ashley-eat-sad': 'ch1-hikari-ashley-eat-sad.jpg',
-    'ch1-hikari-ashley-eat-hopeful': 'ch1-hikari-ashley-eat-hopeful.jpg',
+    'ch1-hikari-ashley-eat-sad': 'ch1-hikari-ashley-eat-sad.png',
+    'ch1-hikari-ashley-eat-hopeful': 'ch1-hikari-ashley-eat-hopeful.png',
 });
 
 // Define the backgrounds for each scene.
@@ -154,11 +188,33 @@ monogatari.characters({
     },
     'ash': {
         name: 'Ashley',
-        color: '#E18BC9'
+        color: '#E18BC9',
+        directory: 'ash',
+        sprites: {
+            1: '1.png',
+            2: '2.png',
+            3: '3.png',
+            4: '4.png',
+            5: '5.png',
+            6: '6.png',
+            7: '7.png',
+            8: '8.png',
+        }
     },
     'and': {
         name: 'Andrew',
-        color: '#81D174'
+        directory: 'and',
+        color: '#81D174',
+        sprites: {
+            1: '1.png',
+            2: '2.png',
+            3: '3.png',
+            4: '4.png',
+            5: '5.png',
+            6: '6.png',
+            7: '7.png',
+            8: '8.png',
+        },
     },
     'dev': {
         name: 'Developer',
@@ -208,7 +264,7 @@ monogatari.script({
             'dev: Then we can begin.',
             '...',
             () => {
-                cueVideo('PHX0PUZJDwA');
+                cueVideo(youtubeSongs.HallucinationConnect);
             },
             'This is a collaborative fanwork, designed to pay respects to the game known as The Coffin of Andy and Leyley.',
             'The Coffin of Andy and Leyley is published by Kit9 Studio and is unaffiliated with this project.',
@@ -227,6 +283,7 @@ monogatari.script({
                 startVideo();
             },
             '...',
+            'show character ash 1 at left with slideInLeftFlipped',
             'You stride into the neighbor\'s apartment as fast as your little legs can carry you, mop in hand. ',
             'ash: .....',
             'ash: WHY IS THERE SO MUCH BLOOD?!',
@@ -304,7 +361,7 @@ monogatari.script({
             'If the warden checks inside the fridge you\'re both done for.',
             () => {
                 stopVideo();
-                cueVideo('xoZcO_3cYoA');
+                cueVideo(youtubeSongs.Cupid);
             },
             'and: Ashley! The warden is coming!!',
             () => {
@@ -372,7 +429,7 @@ monogatari.script({
             'You don\'t stop to give thanks. You bolt out back door, picking up the plank as you go just before the door opens.',
             'Your pace slows as you reach Andrew. You cover your panting mouth with your hands after slowly putting down the plank and mop to keep quiet.',
             () => {
-                cueVideo('I1gcQMs7los');
+                cueVideo(youtubeSongs.SheepSway);
             },
             'hide image ch1-run-from-warden-out-door with fadeOut',
             'show image ch1-hide-background-frame with fadeIn',
@@ -424,16 +481,38 @@ monogatari.script({
             'There\'s the sound of the closet opening and closing - you definitely would have been caught if you tried to hide in there.',
             'Good thing you didn\'t, huh?',
             'The warden\'s search continues, you can hear footsteps, desks being bumped against, chairs moving...',
+            // Note to self - there HAS to be a better way to layer images!!
+            'hide image ch1-hide-background-door',
+            'hide image ch1-hide-background-wall',
+            'hide image ch1-hide-sushley',
+            'hide image ch1-hide-bitedrew',
+            'show image ch1-hide-warden-2',
+            'show image ch1-hide-background-door',
+            'show image ch1-hide-background-wall',
+            'show image ch1-hide-sushley',
+            'show image ch1-hide-bitedrew',
             '... He\'s searching for a body ...',
             'Wait ... Oh no. There\'s no body for him to find. What is he going to do?',
+            'hide image ch1-hide-warden-2',
+            'show image ch1-hide-warden-3',
+            'hide image ch1-hide-background-door',
+            'hide image ch1-hide-background-wall',
+            'hide image ch1-hide-sushley',
+            'hide image ch1-hide-bitedrew',
+            'show image ch1-hide-background-door',
+            'show image ch1-hide-background-wall',
+            'show image ch1-hide-sushley',
+            'show image ch1-hide-bitedrew',
             'You might still be fucked.',
             '... It worked before, so...',
+            'hide image ch1-hide-warden-3',
             'hide image ch1-hide-sushley',
             'show image ch1-hide-preyshey',
             '... You silently pray once more, to whoever or whatever it was that answered you last time.',
             '.....',
             'hide image ch1-hide-preyshey',
             'show image ch1-hide-closeshley with headShake',
+            'play sound Blow1',
             'warden: <b>OH GOD THAT REEKS!</b>',
             'Ah.',
             'Yes.',
@@ -564,7 +643,9 @@ monogatari.script({
             'That\'s what makes it such a great excuse for your inadequacies, for your mistakes, and for your shortcomings.',
             'Of which there are plenty.',
             'You sorry excuse for a human.',
-            'Off to bed with you. You\'re too tired to do anything but mope in your ??? TODO: FINISH THIS TRAIN OF THOUGHT!',
+            'Off to bed with you. You\'re too tired to do anything but mope, clearly.',
+            'You rinse off your plate, stacking it up to dry with a sigh.',
+            '',
             'end'
         ],
         'ch1_postWardenGloat': [
@@ -676,8 +757,8 @@ monogatari.script({
             'The ding of the microwave interrupts your train of thought for a moment, signaling that your nutrients are ready.',
             'TODO: Play dish clink sounds',
             'YUM YUM CANNIBALISM YUM YUM!',
-            'TODO: Show happy Ashley eating food',
-            'Somehow the \'food\' tastes worse than yesterday.',
+            'show image ch1-hikari-ashley-eat-hopeful with fadeIn',
+            'Somehow the \'food\' doesn\'t taste the same as yesterday.',
             'It\'s definitely missing something - company.',
             'Still, all things considered, you\'re doing well the both of you.',
             'You have food. That\'s good. ',
@@ -800,6 +881,13 @@ monogatari.script({
             'and: Anyway! The optimal temperature for cremation is around [ 871°C / 1600°F ], which is beyond what we can do in our kitchen.',
             'and: So no, we can\'t cremate in our kitchen.',
             'and: Even if we had a fireplace it STILL wouldn\'t get hot enough, probably.',
+            'ash: ... Since when are you an expert at disposing of corpses??',
+            'and: ... If you can believe it, I used to be interested in the sciences.',
+            'and: ... Not anymore, I might add.',
+            'This conversation has completely derailed. ',
+            'Absolutely nothing ever goes right for you.',
+            'FUCK!',
+            '',
             'TODO: FINISH THIS TRAIN OF THOUGHT',
             'end'
         ],
