@@ -25,7 +25,7 @@
 
 let youtubePlayer = { isReady: false };
 let youtubePlayerState = 0;
-let youtubePlayerDesiredState = 1;
+let youtubePlayerDesiredState = 0;
 
 const { $_ready, $_ } = Monogatari;
 
@@ -81,6 +81,12 @@ $_ready(() => {
             if (event.data == YT.PlayerState.PLAYING) {
                 // TODO: Do something if it's playing 
             }
+            else {
+                // shit, fuck - but do we want it to stop?
+                if (youtubePlayerDesiredState == 1) {
+                    startVideo();
+                }
+            }
         }
 
         function setYoutubeVolume() {
@@ -100,6 +106,7 @@ $_ready(() => {
 
 function stopVideo() {
     try {
+        youtubePlayerDesiredState = 0;
         if (!youtubePlayer.isReady) return;
         youtubePlayer.stopVideo();
     }
@@ -110,6 +117,7 @@ function stopVideo() {
 
 function startVideo() {
     try {
+        youtubePlayerDesiredState = 1;
         console.log('Youtube player start requested!');
         if (!youtubePlayer.isReady) return;
         youtubePlayer.playVideo();
@@ -122,6 +130,7 @@ function startVideo() {
 function cueVideo(videoId) {
     try {
         if (!youtubePlayer.isReady) return;
+        youtubePlayer.cuePlaylist(videoId);
         youtubePlayer.cueVideoById(videoId);
     }
     catch (ex) {
