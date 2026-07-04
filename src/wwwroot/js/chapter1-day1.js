@@ -321,6 +321,7 @@ monogatari.script({
             'show character and 1 at left with spriteSlideInLeft',
             'show character ash 1 at right with spriteSlideInRight',
             'and: I was so sure we were screwed.',
+            'play sound decision',
             {
                 Choice: {
                     Dialog: 'How do you respond?',
@@ -445,6 +446,7 @@ monogatari.script({
             'and: Good job with the mopping.',
             '... Ashley? ASHLEY?!',
             'Why not leyley?!',
+            'play sound decision',
             {
                 Choice: {
                     Dialog: 'Make a big deal out of it?',
@@ -580,6 +582,7 @@ monogatari.script({
             'Since you actually expect to have food later, you wash your dishes up this time instead of leaving them in the sink.',
             'You\'re tired, and you head to bed, softly opening the bedroom door, just in case Andrew\'s awake.',
             'He\'s got his back turned to you, but you can tell he\'s still awake.',
+            'play sound decision',
             {
                 Choice: {
                     Dialog: 'Say something?',
@@ -687,6 +690,7 @@ monogatari.script({
             'ash: Yes! That!',
             'and: Do you have any idea what temperature crematories run at?',
             'ash: ... Uh...',
+            'play sound decision',
             {
                 Choice: {
                     Dialog: 'Andy\'s asking if you know what temperature crematories run at.',
